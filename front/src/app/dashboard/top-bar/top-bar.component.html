@@ -1,0 +1,38 @@
+<header class="relative z-10 h-20 items-center bg-[#0E141B]">
+  <div class="relative mx-auto flex h-full flex-col justify-center px-3">
+    <div class="relative flex w-full items-center pl-1 sm:ml-0 sm:pr-2">
+      <div class="container relative left-0 flex w-3/4">
+        <div class="group relative flex h-full w-12 items-center">
+          <button
+            type="button"
+            aria-expanded="false"
+            aria-label="Toggle sidenav"
+            class="text-4xl text-white focus:outline-none lg:hidden"
+            (click)="openSidebar()"
+          >
+            &#8801;
+          </button>
+        </div>
+        <div class="group relative flex h-full w-full items-center lg:w-64">
+          <div
+            class="absolute flex h-10 w-auto cursor-pointer items-center justify-center p-3 pr-2 text-sm uppercase text-gray-500 sm:hidden"
+          >
+            <svg
+              fill="none"
+              class="relative h-5 w-5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
