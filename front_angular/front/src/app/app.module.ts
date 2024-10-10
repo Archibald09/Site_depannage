@@ -21,12 +21,17 @@ import { ContentComponent } from './components/content/content.component';
 import { SnippetComponent } from './components/docs/snippet/snippet.component';
 import { FolderIconComponent } from './components/docs/icons/folder-icon/folder-icon.component';
 import { AngularIconComponent } from './components/docs/icons/angular-icon/angular-icon.component';
-import { FactureFormComponent } from './facture-form/facture-form.component';
-import { ContactComponent } from './contact/contact.component';
+import { FactureFormComponent } from './components/content//facture-form/facture-form.component';
+import { ContactComponent } from './components/content/contact/contact.component';
+import { FormsModule } from '@angular/forms';
+import { AProposComponent } from './components/content/a-propos/a-propos.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    FactureFormComponent,
 
     // dashboard
     LayoutComponent,
@@ -46,8 +51,10 @@ import { ContactComponent } from './contact/contact.component';
     AngularIconComponent,
     FactureFormComponent,
     ContactComponent,
+    AProposComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule,     HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

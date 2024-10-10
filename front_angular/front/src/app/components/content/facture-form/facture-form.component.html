@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Création de Facture</h2>
+  <form (ngSubmit)="generateFacture()" #factureForm="ngForm">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="factureData.nom" name="nom" required>
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prénom:</label>
+      <input type="text" id="prenom" [(ngModel)]="factureData.prenom" name="prenom" required>
+    </div>
+    <div class="form-group">
+      <label for="adresse">Adresse:</label>
+      <input type="text" id="adresse" [(ngModel)]="factureData.adresse" name="adresse" required>
+    </div>
+    <div class="form-group">
+      <label for="telephone">Téléphone:</label>
+      <input type="tel" id="telephone" [(ngModel)]="factureData.telephone" name="telephone" required>
+    </div>
+    <div class="form-group">
+      <label for="marque">Marque du véhicule:</label>
+      <select id="marque" [(ngModel)]="factureData.marque" name="marque" required>
+        <option value="" disabled selected>Sélectionnez une marque</option>
+        <!--<option *ngFor="let marque of marques" [value]="marque">{{ marque }}</option>-->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="modele">Modèle du véhicule:</label>
+      <select id="modele" [(ngModel)]="factureData.modele" name="modele" required>
+        <option value="" disabled selected>Sélectionnez un modèle</option>
+        <!--<option *ngFor="let modele of modeles" [value]="modele">{{ modele }}</option>-->
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="signature">Signature:</label>
+      <input type="text" id="signature" [(ngModel)]="factureData.signature" name="signature" required>
+    </div>
+    
+    <!-- Section de géolocalisation -->
+    <div class="form-group">
+      <label>Géolocalisation:</label>
+      <button type="button" class="icon-button" (click)="getLocation()" title="Obtenir ma position">
+        <img src="./assets/images/Boussole.png" alt="Géolocalisation">
+      </button>
+      <div *ngIf="factureData.geolocation" class="geolocation-display">
+        {{ factureData.geolocation }}
+      </div>
+    </div>
+
+    <button type="submit" class="button">Générer la Facture</button>
+
+    <!-- Message de confirmation de géolocalisation -->
+    <div *ngIf="geolocationMessage" class="geolocation-message">
+      {{ geolocationMessage }}
+    </div>
+  </form>
+</div>
