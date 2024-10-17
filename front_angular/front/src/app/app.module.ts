@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// dashboard components
 import { LayoutComponent } from './dashboard/layout/layout.component';
 import { TopBarComponent } from './dashboard/top-bar/top-bar.component';
 import { OverlayComponent } from './dashboard/overlay/overlay.component';
@@ -15,7 +14,6 @@ import { SidebarItemsComponent } from './dashboard/sidebar/sidebar-items/sidebar
 import { SidebarHeaderComponent } from './dashboard/sidebar/sidebar-header/sidebar-header.component';
 import { SidebarItemSectionComponent } from './dashboard/sidebar/sidebar-item-section/sidebar-item-section.component';
 
-// others
 import { DocComponent } from './components/docs/doc/doc.component';
 import { ContentComponent } from './components/content/content.component';
 import { SnippetComponent } from './components/docs/snippet/snippet.component';
@@ -33,7 +31,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     FactureFormComponent,
 
-    // dashboard
     LayoutComponent,
     TopBarComponent,
     OverlayComponent,
@@ -43,7 +40,6 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarHeaderComponent,
     SidebarItemSectionComponent,
 
-    // others
     DocComponent,
     SnippetComponent,
     ContentComponent,
@@ -53,7 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     AProposComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule,     HttpClientModule,
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

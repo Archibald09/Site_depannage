@@ -1,57 +1,65 @@
-<div class="container">
-  <h2>Création de Facture</h2>
-  <form (ngSubmit)="generateFacture()" #factureForm="ngForm">
-    <div class="form-group">
-      <label for="nom">Nom:</label>
-      <input type="text" id="nom" [(ngModel)]="factureData.nom" name="nom" required>
-    </div>
-    <div class="form-group">
-      <label for="prenom">Prénom:</label>
-      <input type="text" id="prenom" [(ngModel)]="factureData.prenom" name="prenom" required>
-    </div>
-    <div class="form-group">
-      <label for="adresse">Adresse:</label>
-      <input type="text" id="adresse" [(ngModel)]="factureData.adresse" name="adresse" required>
-    </div>
-    <div class="form-group">
-      <label for="telephone">Téléphone:</label>
-      <input type="tel" id="telephone" [(ngModel)]="factureData.telephone" name="telephone" required>
-    </div>
-    <div class="form-group">
-      <label for="marque">Marque du véhicule:</label>
-      <select id="marque" [(ngModel)]="factureData.marque" name="marque" required>
-        <option value="" disabled selected>Sélectionnez une marque</option>
-        <!--<option *ngFor="let marque of marques" [value]="marque">{{ marque }}</option>-->
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="modele">Modèle du véhicule:</label>
-      <select id="modele" [(ngModel)]="factureData.modele" name="modele" required>
-        <option value="" disabled selected>Sélectionnez un modèle</option>
-        <!--<option *ngFor="let modele of modeles" [value]="modele">{{ modele }}</option>-->
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="signature">Signature:</label>
-      <input type="text" id="signature" [(ngModel)]="factureData.signature" name="signature" required>
-    </div>
-    
-    <!-- Section de géolocalisation -->
-    <div class="form-group">
-      <label>Géolocalisation:</label>
-      <button type="button" class="icon-button" (click)="getLocation()" title="Obtenir ma position">
-        <img src="./assets/images/Boussole.png" alt="Géolocalisation">
-      </button>
-      <div *ngIf="factureData.geolocation" class="geolocation-display">
-        {{ factureData.geolocation }}
-      </div>
-    </div>
+<form [formGroup]="factureForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" formControlName="nom" class="form-control" required>
+  </div>
 
-    <button type="submit" class="button">Générer la Facture</button>
+  <div class="form-group">
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" formControlName="prenom" class="form-control" required>
+  </div>
 
-    <!-- Message de confirmation de géolocalisation -->
-    <div *ngIf="geolocationMessage" class="geolocation-message">
-      {{ geolocationMessage }}
-    </div>
-  </form>
-</div>
+  <div class="form-group">
+    <label for="adresse">Adresse :</label>
+    <input type="text" id="adresse" formControlName="adresse" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="telephone">Numéro de téléphone :</label>
+    <input type="text" id="telephone" formControlName="telephone" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Adresse email :</label>
+    <input type="email" id="email" formControlName="email" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="marque">Marque :</label>
+    <select id="marque" formControlName="marque" class="form-control" required>
+      <option value="" disabled selected>Sélectionnez une marque</option>
+      <option value="marque1">Marque 1</option>
+      <option value="marque2">Marque 2</option>
+      <option value="marque3">Marque 3</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="modele">Modèle :</label>
+    <select id="modele" formControlName="modele" class="form-control" required>
+      <option value="" disabled selected>Sélectionnez un modèle</option>
+      <option value="modele1">Modèle 1</option>
+      <option value="modele2">Modèle 2</option>
+      <option value="modele3">Modèle 3</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="immatriculation">Immatriculation :</label>
+    <input type="text" id="immatriculation" formControlName="immatriculation" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="geolocalisation">Géolocalisation :</label>
+    <input type="text" id="geolocalisation" formControlName="geolocalisation" class="form-control" required>
+    <button type="button" (click)="getGeolocation()" class="btn btn-info btn-spacing">Obtenir ma géolocalisation</button>
+  </div>
+
+  <div class="form-group">
+    <label for="signature">Signature :</label>
+    <canvas #canvas width="300" height="200" class="signature-canvas"></canvas>
+    <button type="button" (click)="clearSignature()" class="btn btn-warning btn-spacing">Effacer la signature</button>
+  </div>
+
+  <button type="submit" [disabled]="factureForm.invalid" class="btn btn-success btn-spacing">Enregistrer</button>
+</form>
